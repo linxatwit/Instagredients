@@ -2,4 +2,133 @@
     <string name="app_name">Instagredients</string>
     <string name="Open">open</string>
     <string name="Close">close</string>
+
+    <string-array name="ingredients">
+        <item>pepper</item>
+        <item>beans</item>
+        <item>batter</item>
+        <item>cranberries</item>
+        <item>olive oil</item>
+        <item>vegetable oil</item>
+        <item>shallot</item>
+        <item>spray</item>
+        <item>water</item>
+        <item>toppings</item>
+        <item>sauce</item>
+        <item>spice</item>
+        <item>mint</item>
+        <item>dough</item>
+        <item>butter</item>
+        <item>seed</item>
+        <item>basil</item>
+        <item>oregano</item>
+        <item>thyme</item>
+        <item>chocolate</item>
+        <item>vanilla</item>
+        <item>buttermilk</item>
+        <item>cocoa</item>
+        <item>cheese</item>
+        <item>custard</item>
+        <item>egg</item>
+        <item>ice cream</item>
+        <item>milk</item>
+        <item>sour cream</item>
+        <item>yogurt</item>
+        <item>apple</item>
+        <item>banana</item>
+        <item>blackberries</item>
+        <item>blueberries</item>
+        <item>cherries</item>
+        <item>coconut</item>
+        <item>cranberries</item>
+        <item>salt</item>
+        <item>grapes</item>
+        <item>kiwi</item>
+        <item>lemon</item>
+        <item>lime</item>
+        <item>mango</item>
+        <item>orange</item>
+        <item>peach</item>
+        <item>pear</item>
+        <item>pineapple</item>
+        <item>raspberries</item>
+        <item>strawberries</item>
+        <item>baking soda</item>
+        <item>bread</item>
+        <item>flour</item>
+        <item>noodles</item>
+        <item>pasta</item>
+        <item>rice</item>
+        <item>yeast</item>
+        <item>beef soup</item>
+        <item>chicken soup</item>
+        <item>beer</item>
+        <item>lamb soup</item>
+        <item>oil</item>
+        <item>red wine</item>
+        <item>white wine</item>
+        <item>bacon</item>
+        <item>beef</item>
+        <item>chicken</item>
+        <item>ham</item>
+        <item>lamb</item>
+        <item>pork</item>
+        <item>salami</item>
+        <item>sausage</item>
+        <item>beer</item>
+        <item>turkey</item>
+        <item>almond</item>
+        <item>cashew</item>
+        <item>macadamia</item>
+        <item>peanut</item>
+        <item>peanut butter</item>
+        <item>walnut</item>
+        <item>carp</item>
+        <item>catfish</item>
+        <item>crab</item>
+        <item>eel</item>
+        <item>lobster</item>
+        <item>mackerel</item>
+        <item>mussel</item>
+        <item>oyster</item>
+        <item>prawn</item>
+        <item>salmon</item>
+        <item>sardine</item>
+        <item>scallop</item>
+        <item>shrimp</item>
+        <item>squid</item>
+        <item>trout</item>
+        <item>tuna</item>
+        <item>barbeque sauce</item>
+        <item>syrup</item>
+        <item>fish sauce</item>
+        <item>honey</item>
+        <item>mayonnaise</item>
+        <item>mustard</item>
+        <item>soy sauce</item>
+        <item>vinegar</item>
+        <item>sugar</item>
+        <item>avocado</item>
+        <item>broccoli</item>
+        <item>cabbage</item>
+        <item>carrot</item>
+        <item>cauliflower</item>
+        <item>celery</item>
+        <item>corn</item>
+        <item>cucumber</item>
+        <item>eggplant</item>
+        <item>garlic</item>
+        <item>ginger</item>
+        <item>lettuce</item>
+        <item>mushroom</item>
+        <item>olive</item>
+        <item>onion</item>
+        <item>pickle</item>
+        <item>potato</item>
+        <item>pumpkin</item>
+        <item>spinach</item>
+        <item>sweet potato</item>
+        <item>tomato</item>
+        <item>zucchini</item>
+    </string-array>
 </resources>
