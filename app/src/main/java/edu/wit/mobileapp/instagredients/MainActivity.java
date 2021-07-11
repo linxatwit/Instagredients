@@ -1,52 +1,39 @@
 package edu.wit.mobileapp.instagredients;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBarDrawerToggle;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import com.google.android.material.chip.Chip;
 import com.google.android.material.chip.ChipGroup;
-import com.google.android.material.navigation.NavigationView;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements RecyclerItemSelectedListener, View.OnClickListener {
-
-    private DrawerLayout dl;
-    private ActionBarDrawerToggle t;
-    private NavigationView nv;
+public class MainActivity extends BaseActivity implements RecyclerItemSelectedListener, View.OnClickListener {
 
     private RecyclerView recyclerView;
     private RecyclerAdapter recyclerAdapter;
     private List<Ingredients> ingredients = new ArrayList<>();
     private EditText userInput;
     private ChipGroup mchipGroup;
+    private Button findButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-        // drawable layout
-        dl = (DrawerLayout)findViewById(R.id.activity_main);
-        // action bar drawer toggle
-        t = new ActionBarDrawerToggle(this, dl,R.string.Open, R.string.Close);
+        getLayoutInflater().inflate(R.layout.activity_main, frameLayout);
 
         // recycler view
         recyclerView = findViewById(R.id.recyclerView);
@@ -54,6 +41,8 @@ public class MainActivity extends AppCompatActivity implements RecyclerItemSelec
         userInput = findViewById(R.id.text_ingredient);
         // chip group
         mchipGroup = findViewById(R.id.chip_group);
+        // find recipes button
+        findButton = findViewById(R.id.find_button);
 
         // set layout manager for recycler view
         recyclerView.addItemDecoration(new DividerItemDecoration(getApplicationContext(), DividerItemDecoration.VERTICAL));
@@ -97,44 +86,16 @@ public class MainActivity extends AppCompatActivity implements RecyclerItemSelec
             }
         });
 
-        dl.addDrawerListener(t);
-        t.syncState();
-
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-        nv = (NavigationView)findViewById(R.id.nv);
-
-        // navigation bar toggle
-        nv.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+        // switch activities
+        findButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                int id = item.getItemId();
-                switch(id)
-                {
-                    case R.id.home:
-                        Toast.makeText(MainActivity.this, "Home",Toast.LENGTH_SHORT).show();
-                    case R.id.saved:
-                        Toast.makeText(MainActivity.this, "Saved",Toast.LENGTH_SHORT).show();
-                    default:
-                        return true;
-                }
-
-
-
-
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, Recipes.class);
+                startActivity(intent);
             }
         });
 
 
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-
-        if(t.onOptionsItemSelected(item))
-            return true;
-
-        return super.onOptionsItemSelected(item);
     }
 
     // turn item selected into chip
