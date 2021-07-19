@@ -9,9 +9,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.google.android.material.chip.Chip;
 import com.google.android.material.chip.ChipGroup;
@@ -90,8 +92,26 @@ public class MainActivity extends BaseActivity implements RecyclerItemSelectedLi
         findButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, Recipes.class);
-                startActivity(intent);
+                Intent intent = new Intent(MainActivity.this, RecipesActivity.class);
+
+                // send over user input(s)
+                Bundle bundle = new Bundle();
+                ArrayList<String> chipArray = new ArrayList<>();
+                ChipGroup chipGroup = findViewById(R.id.chip_group);
+                for (int i = 0; i<chipGroup.getChildCount(); i++){
+                    Chip chip = (Chip)chipGroup.getChildAt(i);
+                    chipArray.add(chip.getText().toString());
+                    bundle.putStringArrayList("chipArray", chipArray);
+                    Log.v("myApp", i+ " chip = " + chip.getText().toString());
+                }
+
+                intent.putExtras(bundle);
+
+                if(intent.hasExtra("chipArray")) {
+                    startActivity(intent);
+                } else {
+                    Toast.makeText(MainActivity.this, "Input cannot be empty!",Toast.LENGTH_SHORT).show();
+                }
             }
         });
 

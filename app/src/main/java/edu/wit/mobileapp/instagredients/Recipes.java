@@ -1,14 +1,42 @@
 package edu.wit.mobileapp.instagredients;
 
-import androidx.appcompat.app.AppCompatActivity;
+import java.util.List;
 
-import android.os.Bundle;
-
-public class Recipes extends BaseActivity {
+public class Recipes {
+    private String link;
+    private String title;
+    private List<String> ingredientsArray;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        getLayoutInflater().inflate(R.layout.activity_recipes, frameLayout);
+    public String toString() {
+        return "Recipes{" +
+                "link='" + link + '\'' +
+                ", title='" + title + '\'' +
+                ", ingredientsArray=" + ingredientsArray +
+                '}';
+    }
+
+    public void setLink(String link) {
+        this.link = link;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setIngredientsArray(List<String> ingredientsArray) {
+        this.ingredientsArray = ingredientsArray;
+    }
+
+    public String getLink() {
+        return link;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public List<String> getIngredientsArray() {
+        return ingredientsArray;
     }
 }

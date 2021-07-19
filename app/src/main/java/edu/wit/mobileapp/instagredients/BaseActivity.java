@@ -5,12 +5,18 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
 import android.widget.Toast;
 
+import com.google.android.material.chip.Chip;
+import com.google.android.material.chip.ChipGroup;
 import com.google.android.material.navigation.NavigationView;
+
+import java.util.ArrayList;
 
 public class BaseActivity extends AppCompatActivity {
 
@@ -45,7 +51,8 @@ public class BaseActivity extends AppCompatActivity {
                 switch(id)
                 {
                     case R.id.home:
-                        Toast.makeText(BaseActivity.this, "Home",Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(BaseActivity.this, MainActivity.class);
+                        startActivity(intent);
                     case R.id.saved:
                         Toast.makeText(BaseActivity.this, "Saved",Toast.LENGTH_SHORT).show();
                     default:
