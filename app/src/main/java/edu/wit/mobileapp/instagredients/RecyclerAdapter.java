@@ -29,6 +29,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        // inflate layout
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_list, parent, false);
 
         return new MyViewHolder(view);
@@ -52,13 +53,19 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
 
+            // Find ingredientName text view
             ingredientName = itemView.findViewById(R.id.ingredient_name);
+
+            // Find linear root view
             RootView = itemView.findViewById(R.id.rootView);
+
+            // Set on click listener to select ingredient
             RootView.setOnClickListener(this);
         }
 
         @Override
         public void onClick(View v) {
+            // Get position of ingredient selected
             itemSelectedListener.onItemSelected(ingredients.get(getAdapterPosition()));
         }
     }

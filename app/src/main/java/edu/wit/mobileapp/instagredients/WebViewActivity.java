@@ -22,6 +22,7 @@ public class WebViewActivity extends AppCompatActivity {
 
         Log.v("myApp", "link = " + link);
 
+        // find web view layout
         webView = (WebView) findViewById(R.id.webView);
 
         // Enable JavaScript
@@ -38,15 +39,8 @@ public class WebViewActivity extends AppCompatActivity {
         webView.getSettings().setBuiltInZoomControls(true);
         webView.getSettings().setDisplayZoomControls(false);
 
+        // loads the url
         webView.loadUrl(link);
-    }
-
-    private class MyBrowser extends WebViewClient {
-        @Override
-        public boolean shouldOverrideUrlLoading(WebView view, String url) {
-            view.loadUrl(url);
-            return true;
-        }
     }
 
     @Override

@@ -20,7 +20,7 @@ public class RecipeArrayAdapter extends ArrayAdapter<Recipes> {
 
     public RecipeArrayAdapter(Context context, int rid, List<Recipes> recipes) {
         super(context, rid, recipes);
-        mInflater= (LayoutInflater)context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
+        mInflater = (LayoutInflater)context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
     }
 
     @NonNull
@@ -34,14 +34,17 @@ public class RecipeArrayAdapter extends ArrayAdapter<Recipes> {
 
         // Set recipe title
         TextView title;
+        // Find title text view
         title = (TextView) view.findViewById(R.id.recipe_title);
+        // Set text through get method in Recipes class
         title.setText(recipe.getTitle());
 
         // Set recipe link
         TextView link;
+        // Find link text view
         link= (TextView) view.findViewById(R.id.recipe_link);
+        // Set text through get method in Recipes class
         link.setText(recipe.getLink());
-        link.setMovementMethod(LinkMovementMethod.getInstance());
 
         return view;
     }

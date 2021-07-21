@@ -51,6 +51,7 @@ public class BaseActivity extends AppCompatActivity {
                 switch(id)
                 {
                     case R.id.home:
+                        Toast.makeText(BaseActivity.this, "Home",Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(BaseActivity.this, MainActivity.class);
                         startActivity(intent);
                     case R.id.saved:

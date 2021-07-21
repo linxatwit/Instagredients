@@ -30,18 +30,19 @@ public class RecipesActivity extends BaseActivity {
         //setContentView(R.layout.activity_recipes);
         getLayoutInflater().inflate(R.layout.activity_recipes, frameLayout);
 
-        // get user input(s)
+        // Get user input(s)
         Bundle bundle = this.getIntent().getExtras();
         List<String> ingredients = bundle.getStringArrayList("chipArray");
 
         Log.v("myApp", "chipArray = " + ingredients.toString());
 
-        // find recipes matching user inputs in csv
+        // Find recipes matching user inputs in csv
         readRecipesData(ingredients);
 
+        // Find text view for to display recipe not found message
         itemNotFound = (TextView) findViewById(R.id.item_not_found);
 
-        Log.v("myApp", "size = " + recipes.size());
+        //Log.v("myApp", "size = " + recipes.size());
 
         if(recipes.size() == 0) {
             itemNotFound.setText(R.string.item_not_found);
@@ -53,13 +54,13 @@ public class RecipesActivity extends BaseActivity {
             }
         }
 
-        // list view
+        // List view
         listView = findViewById(R.id.listView);
-        // create list adapter to fill data
+        // Create list adapter to fill data
         adapter = new RecipeArrayAdapter(this, 0, this.recipes);
-        // set adapter
+        // Set adapter
         listView.setAdapter(adapter);
-        // add divider to last element
+        // Add divider to last element
         listView.addFooterView(new View(getApplicationContext()));
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -70,7 +71,7 @@ public class RecipesActivity extends BaseActivity {
 
                 String link = recipes.get(position).getLink();
 
-                Log.v("myApp", link);
+                //Log.v("myApp", link);
 
                 intent.putExtra("link", link);
                 startActivity(intent);
@@ -79,32 +80,37 @@ public class RecipesActivity extends BaseActivity {
     }
 
     private void readRecipesData(List<String> ingredients) {
+        // Read csv file
         InputStream in = getResources().openRawResource(R.raw.recipes);
         BufferedReader br = new BufferedReader(new InputStreamReader(in, Charset.forName("UTF-8")));
 
         String result = "";
-        int count = 0;
+        //int count = 0;
         try {
             while ((result = br.readLine()) != null) {
-                // split by
+                // Split by comma in csv 3 times
                 String[] tokens = result.split(",", 3);
 
-                // read data
+                // Read data, create new Recipes object
                 Recipes recipeData = new Recipes();
+                // Replace unnecessary characters in ingredients string with empty
                 String ingredientsS = tokens[2].replaceAll("\"|\\[|\\]|'", "").replaceAll(" ", "");
+                // Change the string from string to array list
                 List<String> ingredientsA = new ArrayList<String>(Arrays.asList(ingredientsS.split(",")));
 
-                Log.v("myApp", "ingredients array: " + ingredientsA.toString());
+                //Log.v("myApp", "ingredients array: " + ingredientsA.toString());
 
                 if (ingredientsA.containsAll(ingredients)) {
-//                    String linkedText = String.format("<a href=\"%s\">%s</a> ", tokens[0], tokens[0]);
-//                    recipeData.setLink(Html.fromHtml(linkedText));
+                    // Set link in array list
                     recipeData.setLink(tokens[0]);
+                    // Set title in array list
                     recipeData.setTitle(tokens[1]);
+                    // Set ingredients array in array list
                     recipeData.setIngredientsArray(ingredientsA);
+                    // Add the data to recipes array list
                     recipes.add(recipeData);
                 }
-                count++;
+                //count++;
 
                 //Log.d("myApp", "Ingredients array: " + tokens[2].replaceAll("\"|\\[|\\]", ""));
             }
@@ -112,10 +118,10 @@ public class RecipesActivity extends BaseActivity {
             Log.v("myApp", "Error reading data file on line " + result, e);
         }
 
-        Log.v("myApp", "count = " + count);
+        //Log.v("myApp", "count = " + count);
 
-        if(recipes.size() != 0) {
-            Log.d("myApp", "recipes arrayList: " + (recipes.get(0).getIngredientsArray().toString()) + "size: " + recipes.size());
-        }
+        //if(recipes.size() != 0) {
+        //    Log.d("myApp", "recipes arrayList: " + (recipes.get(0).getIngredientsArray().toString()) + "size: " + recipes.size());
+        //}
     }
 }
