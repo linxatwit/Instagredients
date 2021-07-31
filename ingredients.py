@@ -20,8 +20,8 @@ contain = []
 
 with open('recipes.csv','a', newline='') as fd:
     for recipe in data[:325]:
-        print(recipe)
-        scraper = scrape_me(recipe)
+        print("https:" + recipe)
+        scraper = scrape_me("https:" + recipe)
         ingredients = scraper.ingredients()
         title = scraper.title()
         #print(title)
@@ -42,7 +42,7 @@ with open('recipes.csv','a', newline='') as fd:
         if (len(contain) != 0):
             # append to dataframe
             writer = csv.writer(fd)
-            appendData = [str(recipe), str(title), str(contain)]
+            appendData = [str("https:" + recipe), str(title), str(contain)]
             writer.writerow(appendData)
             contain = []
 

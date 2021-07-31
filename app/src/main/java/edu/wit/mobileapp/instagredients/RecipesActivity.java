@@ -15,6 +15,7 @@ import java.io.InputStreamReader;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class RecipesActivity extends BaseActivity {
@@ -47,6 +48,7 @@ public class RecipesActivity extends BaseActivity {
         if(recipes.size() == 0) {
             itemNotFound.setText(R.string.item_not_found);
         } else {
+            Collections.sort(recipes, new TitleComparator());
             for (int i = 0; i < recipes.size(); i++) {
                 Recipes item = new Recipes();
                 item.setTitle(recipes.get(i).getTitle());
@@ -104,7 +106,7 @@ public class RecipesActivity extends BaseActivity {
                     // Set link in array list
                     recipeData.setLink(tokens[0]);
                     // Set title in array list
-                    recipeData.setTitle(tokens[1]);
+                    recipeData.setTitle(tokens[1].replaceAll("\"|\\[|\\]|'", ""));
                     // Set ingredients array in array list
                     recipeData.setIngredientsArray(ingredientsA);
                     // Add the data to recipes array list

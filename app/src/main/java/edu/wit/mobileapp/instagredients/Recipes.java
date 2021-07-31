@@ -1,5 +1,6 @@
 package edu.wit.mobileapp.instagredients;
 
+import java.util.Comparator;
 import java.util.List;
 
 public class Recipes {
@@ -38,5 +39,13 @@ public class Recipes {
 
     public List<String> getIngredientsArray() {
         return ingredientsArray;
+    }
+}
+
+class TitleComparator implements Comparator<Recipes> {
+
+    @Override
+    public int compare(Recipes r1, Recipes r2) {
+        return r1.getTitle().compareTo(r2.getTitle());
     }
 }
