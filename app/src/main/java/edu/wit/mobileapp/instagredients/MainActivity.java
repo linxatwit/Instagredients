@@ -52,10 +52,10 @@ public class MainActivity extends BaseActivity implements RecyclerItemSelectedLi
         getLayoutInflater().inflate(R.layout.activity_main, frameLayout);
 
         // Speech to Text
-        speechButton = findViewById(R.id.imageView);
+        //speechButton = findViewById(R.id.imageView);
         userInput = findViewById(R.id.text_ingredient);
 
-        speechButton.setOnClickListener(new View.OnClickListener() {
+        /*speechButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent speechIntent = new Intent (RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
@@ -63,7 +63,7 @@ public class MainActivity extends BaseActivity implements RecyclerItemSelectedLi
                 speechIntent.putExtra(RecognizerIntent.EXTRA_PROMPT, "Speak");
                 startActivityForResult(speechIntent,RECOGNIZER_RESULT );
             }
-        });
+        });*/
         // recycler view
         recyclerView = findViewById(R.id.recyclerView);
         // user input

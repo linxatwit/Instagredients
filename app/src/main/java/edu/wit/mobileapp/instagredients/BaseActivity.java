@@ -48,17 +48,25 @@ public class BaseActivity extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 int id = item.getItemId();
+                Intent intent;
                 switch(id)
                 {
                     case R.id.home:
                         Toast.makeText(BaseActivity.this, "Home",Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(BaseActivity.this, MainActivity.class);
+                        intent = new Intent(BaseActivity.this, MainActivity.class);
                         startActivity(intent);
+                        finish();
+                        break;
                     case R.id.saved:
                         Toast.makeText(BaseActivity.this, "Saved",Toast.LENGTH_SHORT).show();
+                        intent = new Intent(BaseActivity.this, ViewSavedActivity.class);
+                        startActivity(intent);
+                        finish();
+                        break;
                     default:
                         return true;
                 }
+                return true;
             }
         });
     }

@@ -5,6 +5,10 @@
 
     <string name="item_not_found">No recipes are available for the inputted ingredients.</string>
 
+    <string name="saveText">Save Recipe</string>
+    <string name="savedText">Recipe Saved</string>
+    <string name="no_saved_recipes">No Saved Recipes</string>
+
     <string-array name="ingredients">
         <item>pepper</item>
         <item>beans</item>

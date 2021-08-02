@@ -27,12 +27,12 @@
             android:layout_marginRight="6dp"
             android:hint="Enter ingredients" />
 
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="6dp"
-            android:src="@android:drawable/ic_btn_speak_now" />
+<!--        <ImageView-->
+<!--            android:id="@+id/imageView"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginRight="6dp"-->
+<!--            android:src="@android:drawable/ic_btn_speak_now" />-->
 
         <Button
             android:id="@+id/find_button"

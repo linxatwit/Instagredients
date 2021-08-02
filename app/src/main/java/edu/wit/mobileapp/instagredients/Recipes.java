@@ -7,6 +7,7 @@ public class Recipes {
     private String link;
     private String title;
     private List<String> ingredientsArray;
+    private String saveText;
 
     @Override
     public String toString() {
@@ -25,6 +26,10 @@ public class Recipes {
         this.title = title;
     }
 
+    public void setSaveText(String saveText) {
+        this.saveText = saveText;
+    }
+
     public void setIngredientsArray(List<String> ingredientsArray) {
         this.ingredientsArray = ingredientsArray;
     }
@@ -35,6 +40,10 @@ public class Recipes {
 
     public String getTitle() {
         return title;
+    }
+
+    public String getSaveText() {
+        return saveText;
     }
 
     public List<String> getIngredientsArray() {
