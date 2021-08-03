@@ -82,10 +82,17 @@ public class SaveRecipeArrayAdapter extends ArrayAdapter<Recipes> {
 
                     String result = "";
                     while ((result = br.readLine()) != null) {
+                        if (result.length() == 0){
+                            continue;
+                        } else if (result.trim().isEmpty()){
+                            break;
+                        }
                         // Split by comma in csv 3 times
                         String[] tokens = result.split(",", 3);
                         if (tokens[0].equals(recipe.getLink())) {
-                            string += "\n";
+                            string += "";
+                        } else if (tokens.length == 0 ) {
+                            continue;
                         } else {
                             string += tokens[0] + "," + tokens[1] + "," + tokens[2] + "\n";
                         }

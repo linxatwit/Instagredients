@@ -59,9 +59,20 @@ public class RecipeArrayAdapter extends ArrayAdapter<Recipes> {
         Button saveButton;
         saveButton = (Button) view.findViewById(R.id.save_button);
         FileInputStream fis;
+        FileOutputStream outputStream;
         try {
-            fis = getContext().openFileInput(filename);
+            File file = getContext().getFileStreamPath(filename);
+            if (file.exists()) {
+                fis = getContext().openFileInput(filename);
+            } else {
+                outputStream = getContext().openFileOutput(filename, Context.MODE_PRIVATE);
+                outputStream.close();
+                fis = getContext().openFileInput(filename);
+            }
         } catch (FileNotFoundException e) {
+            fis = null;
+            e.printStackTrace();
+        } catch (IOException e) {
             fis = null;
             e.printStackTrace();
         }
@@ -93,9 +104,8 @@ public class RecipeArrayAdapter extends ArrayAdapter<Recipes> {
                     //Log.v("myApp", "The full string is: " + string);
 
                     try{
-                        outputStream = getContext().openFileOutput(filename, Context.MODE_PRIVATE);
+                        outputStream = getContext().openFileOutput(filename, Context.MODE_APPEND);
                         outputStream.write(string.getBytes());
-                        outputStream.close();
                     } catch(Exception e){
                         Log.v("myApp", "Error: " + e);
                     }

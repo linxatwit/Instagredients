@@ -48,7 +48,7 @@ public class ViewSavedActivity extends BaseActivity {
         // Find text view for to display recipe not found message
         noSavedRecipes = (TextView) findViewById(R.id.no_saved_recipes);
 
-        Log.v("myApp", "size = " + recipes.size());
+        //Log.v("myApp", "size = " + recipes.size());
 
         if(recipes.size() == 0) {
             noSavedRecipes.setText(R.string.no_saved_recipes);
@@ -97,7 +97,10 @@ public class ViewSavedActivity extends BaseActivity {
         //int count = 0;
         try {
             while ((result = br.readLine()) != null) {
-                if (result.trim().isEmpty()){
+                Log.v("myApp", "result: " + result.length());
+                if (result.length() == 0){
+                    continue;
+                } else if (result.trim().isEmpty()){
                     break;
                 }
                 // Split by comma in csv 3 times
