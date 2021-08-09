@@ -110,7 +110,7 @@ public class RecipesActivity extends BaseActivity {
                 outerloop:
                 for (String ingredient : ingredients) {
                     ingredient = ingredient.replaceAll(" ", "");
-                    Log.v("myApp", "aaaa array: " + ingredient);
+                    //Log.v("myApp", "aaaa array: " + ingredient);
                     if (ingredientsA.contains(ingredient)) {
                         // Set link in array list
                         recipeData.setLink(tokens[0]);
