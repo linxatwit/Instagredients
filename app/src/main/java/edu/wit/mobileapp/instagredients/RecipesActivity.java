@@ -105,19 +105,27 @@ public class RecipesActivity extends BaseActivity {
                 // Change the string from string to array list
                 List<String> ingredientsA = new ArrayList<String>(Arrays.asList(ingredientsS.split(",")));
 
-                //Log.v("myApp", "ingredients array: " + ingredientsA.toString());
+                Log.v("myApp", "ingredients array: " + ingredientsA.toString());
 
-                if (ingredientsA.containsAll(ingredients)) {
-                    // Set link in array list
-                    recipeData.setLink(tokens[0]);
-                    // Set title in array list
-                    recipeData.setTitle(tokens[1].replaceAll("\"|\\[|\\]|'", ""));
-                    // Set ingredients array in array list
-                    recipeData.setIngredientsArray(ingredientsA);
-                    // Set save state
-                    recipeData.setSaveText(String.valueOf(R.string.saveText));
-                    // Add the data to recipes array list
-                    recipes.add(recipeData);
+                outerloop:
+                for (String ingredient : ingredients) {
+                    ingredient = ingredient.replaceAll(" ", "");
+                    Log.v("myApp", "aaaa array: " + ingredient);
+                    if (ingredientsA.contains(ingredient)) {
+                        // Set link in array list
+                        recipeData.setLink(tokens[0]);
+                        // Set title in array list
+                        recipeData.setTitle(tokens[1].replaceAll("\"|\\[|\\]|/[,']/", ""));
+                        // Set ingredients array in array list
+                        recipeData.setIngredientsArray(ingredientsA);
+                        // Set save state
+                        recipeData.setSaveText(String.valueOf(R.string.saveText));
+                        // Add the data to recipes array list
+                        recipes.add(recipeData);
+                        break outerloop;
+                    } else {
+                        continue;
+                    }
                 }
                 //count++;
 
