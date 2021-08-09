@@ -11,14 +11,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Instagredients">
-        <activity android:name=".ViewSavedActivity"></activity>
+        <activity android:name=".ViewSavedActivity"
+            android:label="Saved Recipes"></activity>
         <activity android:name=".WebViewActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
         </activity>
         <activity android:name=".BaseActivity" />
-        <activity android:name=".RecipesActivity" />
+        <activity android:name=".RecipesActivity"
+            android:label="Recipes"/>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
