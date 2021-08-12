@@ -39,7 +39,7 @@ public class RecipesActivity extends BaseActivity {
         Bundle bundle = this.getIntent().getExtras();
         List<String> ingredients = bundle.getStringArrayList("chipArray");
 
-        Log.v("myApp", "chipArray = " + ingredients.toString());
+        //Log.v("myApp", "chipArray = " + ingredients.toString());
 
         // Find recipes matching user inputs in csv
         readRecipesData(ingredients);
@@ -105,7 +105,7 @@ public class RecipesActivity extends BaseActivity {
                 // Change the string from string to array list
                 List<String> ingredientsA = new ArrayList<String>(Arrays.asList(ingredientsS.split(",")));
 
-                Log.v("myApp", "ingredients array: " + ingredientsA.toString());
+                //Log.v("myApp", "ingredients array: " + ingredientsA.toString());
 
                 outerloop:
                 for (String ingredient : ingredients) {

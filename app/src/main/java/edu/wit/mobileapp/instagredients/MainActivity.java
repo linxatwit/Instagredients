@@ -42,7 +42,7 @@ public class MainActivity extends BaseActivity implements RecyclerItemSelectedLi
     private List<Ingredients> ingredients = new ArrayList<>();
     private EditText userInput;
     private ChipGroup mchipGroup;
-    private Button findButton;
+    private ImageView findButton;
 
     private static final int RECOGNIZER_RESULT = 1;
 

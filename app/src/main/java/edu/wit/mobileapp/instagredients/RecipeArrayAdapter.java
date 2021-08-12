@@ -8,8 +8,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -56,8 +58,8 @@ public class RecipeArrayAdapter extends ArrayAdapter<Recipes> {
         // Set text through get method in Recipes class
         link.setText(recipe.getLink());
 
-        Button saveButton;
-        saveButton = (Button) view.findViewById(R.id.save_button);
+        ImageView saveButton;
+        saveButton =  view.findViewById(R.id.fav_icon);
         FileInputStream fis;
         FileOutputStream outputStream;
         try {
@@ -83,8 +85,7 @@ public class RecipeArrayAdapter extends ArrayAdapter<Recipes> {
             while (((result = br.readLine()) != null)) {
                 String[] tokens = result.split(",", 3);
                 if (tokens[0].equals(recipe.getLink())) {
-                    saveButton.setText(view.getResources().getText(R.string.savedText));
-                    saveButton.setBackgroundColor(view.getResources().getColor(R.color.red));
+                    saveButton.setImageResource(R.drawable.heart_filled);
                 }
             }
             fis.close();
@@ -95,9 +96,8 @@ public class RecipeArrayAdapter extends ArrayAdapter<Recipes> {
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (saveButton.getText().equals(view.getResources().getText(R.string.saveText))) {
-                    saveButton.setText(view.getResources().getText(R.string.savedText));
-                    saveButton.setBackgroundColor(view.getResources().getColor(R.color.red));
+                if (saveButton.getDrawable().getConstantState() == view.getContext().getResources().getDrawable(R.drawable.heart_empty).getConstantState()) {
+                    saveButton.setImageResource(R.drawable.heart_filled);
                     FileOutputStream outputStream;
 
                     String string = recipe.getLink() + "," + recipe.getTitle() + "," + recipe.getIngredientsArray() + "\n";
@@ -110,8 +110,7 @@ public class RecipeArrayAdapter extends ArrayAdapter<Recipes> {
                         Log.v("myApp", "Error: " + e);
                     }
                 } else {
-                    saveButton.setText(view.getResources().getText(R.string.saveText));
-                    saveButton.setBackgroundColor(view.getResources().getColor(R.color.light_gray));
+                    saveButton.setImageResource(R.drawable.heart_empty);
 
                     try {
                         // Read csv file

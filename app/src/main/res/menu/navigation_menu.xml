@@ -2,6 +2,11 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:id="@+id/home"
         android:title="Home"/>
+    <item android:id="@+id/all"
+        android:title="All Recipes"/>
     <item android:id="@+id/saved"
         android:title="View Saved"/>
+
+    <item android:id="@+id/logout"
+        android:title="Logout"/>
 </menu>

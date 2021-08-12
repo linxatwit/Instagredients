@@ -64,6 +64,8 @@ public class ViewSavedActivity extends BaseActivity {
 
         // List view
         listView = findViewById(R.id.listView2);
+        listView.setDivider(null);
+        listView.setDividerHeight(0);
         // Create list adapter to fill data
         adapter = new SaveRecipeArrayAdapter(this, 0, this.recipes);
         // Set adapter

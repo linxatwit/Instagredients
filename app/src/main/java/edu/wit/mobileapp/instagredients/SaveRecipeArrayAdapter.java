@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -54,15 +55,13 @@ public class SaveRecipeArrayAdapter extends ArrayAdapter<Recipes> {
         // Set text through get method in Recipes class
         link.setText(recipe.getLink());
 
-        Button saveButton;
-        saveButton = (Button) view.findViewById(R.id.save_button);
-        saveButton.setText(view.getResources().getText(R.string.savedText));
-        saveButton.setBackgroundColor(view.getResources().getColor(R.color.red));
+        ImageView saveButton;
+        saveButton = view.findViewById(R.id.fav_icon);
+        saveButton.setImageResource(R.drawable.heart_filled);
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                saveButton.setText(view.getResources().getText(R.string.saveText));
-                saveButton.setBackgroundColor(view.getResources().getColor(R.color.light_gray));
+                saveButton.setImageResource(R.drawable.heart_empty);
 
                 try {
                     // Read csv file

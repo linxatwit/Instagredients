@@ -13,39 +13,49 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <com.google.android.material.chip.ChipGroup
-            android:id="@+id/chip_group"
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:visibility="gone" />
+            android:paddingBottom="8dp"
+            android:background="@color/purple_500"
+            >
 
-        <EditText
-            android:id="@+id/text_ingredient"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="6dp"
-            android:layout_marginRight="6dp"
-            android:hint="Enter ingredients" />
+            <EditText
+                android:id="@+id/text_ingredient"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="6dp"
+                android:layout_marginRight="6dp"
+                android:layout_toStartOf="@id/find_button"
+                android:layout_toLeftOf="@id/find_button"
+                android:background="@color/white"
+                android:backgroundTint="@color/white"
+                android:hint="Enter ingredients"
+                android:padding="10dp" />
 
-<!--        <ImageView-->
-<!--            android:id="@+id/imageView"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginRight="6dp"-->
-<!--            android:src="@android:drawable/ic_btn_speak_now" />-->
+            <ImageView
+                android:id="@+id/find_button"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/ic_search" />
 
-        <Button
-            android:id="@+id/find_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="6dp"
-            android:text="Find Recipes" />
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/chip_group"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:background="@color/white"
+                android:layout_marginLeft="6dp"
+                android:layout_marginRight="56dp"
+                android:paddingStart="5dp"
+                android:paddingLeft="5dp"
+                android:layout_below="@id/text_ingredient"
+                />
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/light_gray"
-            android:layout_marginTop="7dp" />
+        </RelativeLayout>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView"

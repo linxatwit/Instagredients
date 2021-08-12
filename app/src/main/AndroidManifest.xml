@@ -11,23 +11,40 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Instagredients">
-        <activity android:name=".ViewSavedActivity"
-            android:label="Saved Recipes"></activity>
-        <activity android:name=".WebViewActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".BaseActivity" />
-        <activity android:name=".RecipesActivity"
-            android:label="Recipes"/>
-        <activity android:name=".MainActivity">
+        <activity
+            android:name=".AllRecipesActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ForgotPassword"
+            android:exported="true" />
+        <activity
+            android:name=".RegisterActivity"
+            android:exported="true" />
+        <activity
+            android:name=".LoginActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Splash"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".ViewSavedActivity"
+            android:label="Saved Recipes" />
+        <activity android:name=".WebViewActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".BaseActivity" />
+        <activity
+            android:name=".RecipesActivity"
+            android:label="Recipes" />
+        <activity android:name=".MainActivity" />
     </application>
 
 </manifest>

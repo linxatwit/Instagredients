@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "321695277226",
+    "project_id": "instagredients-a3111",
+    "storage_bucket": "instagredients-a3111.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:321695277226:android:6efb42762e3fa625ac70d3",
+        "android_client_info": {
+          "package_name": "edu.wit.mobileapp.instagredients"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "321695277226-32fbg4el7c1k240udnm9o3tponrb2pal.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBqSxyxyRPLi-DEfPnPo4m8Y-4_QCXpX8E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "321695277226-32fbg4el7c1k240udnm9o3tponrb2pal.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

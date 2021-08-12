@@ -15,6 +15,7 @@ import android.widget.Toast;
 import com.google.android.material.chip.Chip;
 import com.google.android.material.chip.ChipGroup;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.ArrayList;
 
@@ -57,11 +58,22 @@ public class BaseActivity extends AppCompatActivity {
                         startActivity(intent);
                         finish();
                         break;
+
+                    case R.id.all:
+                        intent = new Intent(BaseActivity.this, AllRecipesActivity.class);
+                        startActivity(intent);
+                        break;
                     case R.id.saved:
                         Toast.makeText(BaseActivity.this, "Saved",Toast.LENGTH_SHORT).show();
                         intent = new Intent(BaseActivity.this, ViewSavedActivity.class);
                         startActivity(intent);
                         finish();
+                        break;
+                    case R.id.logout:
+                        FirebaseAuth.getInstance().signOut();
+                        intent = new Intent(BaseActivity.this, LoginActivity.class);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                        startActivity(intent);
                         break;
                     default:
                         return true;
