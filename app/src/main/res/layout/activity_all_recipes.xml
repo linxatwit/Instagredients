@@ -62,7 +62,7 @@
                 android:layout_toLeftOf="@id/searchBtn"
                 android:background="@color/white"
                 android:backgroundTint="@color/white"
-                android:hint="Search here ex. dairy free"
+                android:hint="Search here ex. dairy free, sugar free"
                 android:padding="10dp" />
 
             <ImageView
